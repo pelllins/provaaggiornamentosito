@@ -302,6 +302,14 @@
             opacity: 1;
             will-change: auto;
         }
+
+        /* Footer spacing like sections on small screens */
+        @media (max-width: 764px) {
+            footer {
+                padding-top: 5rem;
+                padding-bottom: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -465,7 +473,7 @@
     </section>
 
     <footer class="bg-black border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
+        <div class="max-w-7xl mx-auto px-6 py-8">
             <!-- Grid principale -->
             <div class="grid md:grid-cols-4 gap-10 mb-8">
                 <!-- Logo e descrizione -->
@@ -541,9 +549,8 @@
             mobileMenu.classList.remove('active');
         }
 
-        // Footer reveal + disable scroll-snap while footer is visible (fix Safari jump)
+        // Footer reveal transition
         const footerEl = document.querySelector('footer');
-        let footerSnapDisabled = false;
         if (footerEl) {
             const footerObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -551,16 +558,8 @@
                         requestAnimationFrame(() => {
                             footerEl.classList.add('footer-visible');
                         });
-                        if (!footerSnapDisabled) {
-                            document.documentElement.style.scrollSnapType = 'none';
-                            footerSnapDisabled = true;
-                        }
                     } else {
                         footerEl.classList.remove('footer-visible');
-                        if (footerSnapDisabled) {
-                            document.documentElement.style.scrollSnapType = 'y mandatory';
-                            footerSnapDisabled = false;
-                        }
                     }
                 });
             }, { threshold: 0.2 });
