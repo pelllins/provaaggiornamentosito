@@ -593,10 +593,19 @@
         function navigateToSection(event, sectionId) {
             event.preventDefault();
             closeMenu();
+            
+            // Disabilita temporaneamente scroll-snap per Safari iOS
+            document.documentElement.style.scrollSnapType = 'none';
+            
             setTimeout(() => {
                 const section = document.getElementById(sectionId);
                 if (section) {
                     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Riabilita scroll-snap dopo lo scroll
+                    setTimeout(() => {
+                        document.documentElement.style.scrollSnapType = 'y proximity';
+                    }, 1000);
                 }
             }, 300);
         }
