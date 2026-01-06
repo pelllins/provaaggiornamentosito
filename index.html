@@ -293,14 +293,17 @@
 
         /* Footer con scroll-snap e transizione di ingresso */
         footer {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
             transition: opacity 2.5s ease;
             opacity: 0;
             will-change: opacity;
+            contain: paint;
+            overflow-anchor: none;
         }
 
         footer.footer-visible {
             opacity: 1;
-            will-change: auto;
         }
 
         /* Footer spacing like sections on small screens */
