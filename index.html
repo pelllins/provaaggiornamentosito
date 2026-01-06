@@ -293,13 +293,14 @@
 
         /* Footer con scroll-snap e transizione di ingresso */
         footer {
-            scroll-snap-align: start;
             transition: opacity 2.5s ease;
             opacity: 0;
+            will-change: opacity;
         }
 
         footer.footer-visible {
             opacity: 1;
+            will-change: auto;
         }
     </style>
 </head>
@@ -307,7 +308,9 @@
 
     <nav class="fixed top-0 w-full z-50 border-b border-white/5">
         <div class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-            <img src="images/climatech.svg" alt="Climatech" class="h-8">
+            <a href="#home" aria-label="Vai alla Home" class="inline-flex items-center">
+                <img src="images/climatech.svg" alt="Climatech" class="h-8">
+            </a>
             
             <!-- Menu Desktop -->
             <ul class="desktop-menu flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-medium">
