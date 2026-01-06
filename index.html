@@ -541,8 +541,9 @@
             mobileMenu.classList.remove('active');
         }
 
-        // Footer reveal transition
+        // Footer reveal + disable scroll-snap while footer is visible (fix Safari jump)
         const footerEl = document.querySelector('footer');
+        let footerSnapDisabled = false;
         if (footerEl) {
             const footerObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -550,8 +551,16 @@
                         requestAnimationFrame(() => {
                             footerEl.classList.add('footer-visible');
                         });
+                        if (!footerSnapDisabled) {
+                            document.documentElement.style.scrollSnapType = 'none';
+                            footerSnapDisabled = true;
+                        }
                     } else {
                         footerEl.classList.remove('footer-visible');
+                        if (footerSnapDisabled) {
+                            document.documentElement.style.scrollSnapType = 'y mandatory';
+                            footerSnapDisabled = false;
+                        }
                     }
                 });
             }, { threshold: 0.2 });
