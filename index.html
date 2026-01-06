@@ -380,11 +380,11 @@
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="flex flex-col text-center text-sm uppercase tracking-[0.3em] font-medium">
-                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block" onclick="closeMenu()">Home</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block" onclick="closeMenu()">Lavori</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block" onclick="closeMenu()">Marchi</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block" onclick="closeMenu()">Contatti</a></li>
-                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block" onclick="closeMenu()">Collaborazioni</a></li>
+                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'home')">Home</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'lavori')">Lavori</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'marchi')">Marchi</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'contatti')">Contatti</a></li>
+                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'collaborazioni')">Collaborazioni</a></li>
             </ul>
         </div>
     </nav>
@@ -587,6 +587,18 @@
         function closeMenu() {
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
+        }
+        
+        // Navigazione smooth per menu mobile (fix Safari iOS)
+        function navigateToSection(event, sectionId) {
+            event.preventDefault();
+            closeMenu();
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 300);
         }
         
         // Carosello Lavori
