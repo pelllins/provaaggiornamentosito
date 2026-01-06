@@ -30,8 +30,14 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            padding-top: 20px;
+            padding-top: 5rem;
             padding-bottom: 15px;
+        }
+
+        @media (max-height: 755px) {
+            section {
+                padding-top: 5rem;
+            }
         }
 
         /* Animazioni "Staggered" con Blur (Video 0:09) */
@@ -285,10 +291,15 @@
         .brand-hisense { color: #00897B; }
         .brand-daikin { color: #00A1E4; }
 
-        /* Footer con scroll-snap */
+        /* Footer con scroll-snap e transizione di ingresso */
         footer {
             scroll-snap-align: start;
-            scroll-snap-stop: always;
+            transition: opacity 2.5s ease;
+            opacity: 0;
+        }
+
+        footer.footer-visible {
+            opacity: 1;
         }
     </style>
 </head>
@@ -342,7 +353,7 @@
     </section>
 
     <section id="lavori">
-        <div class="max-w-6xl w-full mx-auto px-4 md:px-6 py-20 md:py-0 reveal-container">
+        <div class="max-w-6xl w-full mx-auto px-4 md:px-6 md:py-0 reveal-container">
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 bg-[#111] p-6 md:p-16 rounded-[40px] border border-white/5 items-center">
                 <div class="reveal-item">
                     <h2 class="text-4xl font-bold mb-6 uppercase tracking-tighter reveal-item">I nostri lavori</h2>
@@ -526,27 +537,56 @@
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
         }
-        
-        // Navigazione smooth per menu mobile (fix Safari iOS)
-        function navigateToSection(event, sectionId) {
-            event.preventDefault();
-            closeMenu();
-            
-            // Disabilita temporaneamente scroll-snap per Safari iOS
-            document.documentElement.style.scrollSnapType = 'none';
-            
-            setTimeout(() => {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    
-                    // Riabilita scroll-snap dopo lo scroll
-                    setTimeout(() => {
-                        document.documentElement.style.scrollSnapType = 'y proximity';
-                    }, 1000);
-                }
-            }, 300);
+
+        // Footer reveal transition
+        const footerEl = document.querySelector('footer');
+        if (footerEl) {
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            footerEl.classList.add('footer-visible');
+                        });
+                    } else {
+                        footerEl.classList.remove('footer-visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            footerObserver.observe(footerEl);
         }
+        
+        // Navigazione smooth per link navbar (desktop e mobile) con ripristino scroll-snap
+        const snapRestoreDelay = 900;
+
+        function smoothScrollTo(hash) {
+            if (!hash || hash === '#') return;
+            const target = document.querySelector(hash);
+            if (!target) return;
+
+            // Disabilita snap per evitare conflitti durante lo scroll smooth
+            document.documentElement.style.scrollSnapType = 'none';
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            setTimeout(() => {
+                document.documentElement.style.scrollSnapType = 'y mandatory';
+            }, snapRestoreDelay);
+        }
+
+        function wireNavLinks() {
+            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a, a[href="#home"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (!href || !href.startsWith('#')) return;
+                    e.preventDefault();
+                    // Chiudi sempre il menu mobile
+                    closeMenu();
+                    smoothScrollTo(href);
+                });
+            });
+        }
+
+        wireNavLinks();
         
         // Carosello Lavori
         const lavoriData = [
