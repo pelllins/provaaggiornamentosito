@@ -1,4 +1,68 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="macbook-air">
+      <div class="group">
+        <div class="text-wrapper">Impianto canalizzato</div>
+        <img class="mask-group" src="img/mask-group.png" />
+      </div>
+      <div class="div">I nostri marchi</div>
+      <p class="installatori">
+        <span class="span">Installatori certificati </span>
+        <span class="text-wrapper-2">Daikin Comfort Store</span>
+        <span class="span"> e partner </span>
+        <span class="text-wrapper-2">Hisense</span>
+        <span class="span">. Portiamo l&#39;eccellenza dei leader mondiali della climatizzazione a casa tua.</span>
+      </p>
+      <img class="hero" src="img/hero-section2-1.png" />
+      <div class="group-2">
+        <img class="img" src="img/group.png" />
+        <div class="group-3">
+          <img class="vector" src="img/vector.svg" />
+          <img class="vector-2" src="img/vector-5.svg" />
+          <img class="vector-3" src="img/vector-3.svg" />
+          <img class="vector-4" src="img/vector-2.svg" />
+          <img class="vector-5" src="img/vector-8.svg" />
+          <img class="vector-6" src="img/image.svg" />
+          <img class="vector-7" src="img/vector-7.svg" />
+          <img class="vector-8" src="img/vector-6.svg" />
+          <img class="vector-9" src="img/vector-4.svg" />
+        </div>
+      </div>
+      <img class="vector-10" src="img/vector-10-2.svg" />
+      <div class="navbar">
+        <div class="text-wrapper-3">Home</div>
+        <div class="text-wrapper-3">Contatti</div>
+        <div class="text-wrapper-3">Lavori</div>
+        <div class="text-wrapper-3">Listino</div>
+        <div class="text-wrapper-3">Collaborazioni</div>
+      </div>
+      <div class="frame"><img class="instagram" src="img/instagram.svg" /></div>
+      <div class="facebook-wrapper"><img class="facebook" src="img/facebook.svg" /></div>
+      <img class="frame-2" src="img/frame-8713.svg" />
+      <div class="div-wrapper"><p class="p">Contattaci e ottieni il tuo preventivo</p></div>
+      <div class="rectangle"></div>
+      <div class="rectangle-2"></div>
+      <div class="text-wrapper-4">Whatsapp</div>
+      <div class="text-wrapper-5">Mail</div>
+      <div class="group-4">
+        <img class="vector-11" src="img/vector-10.svg" />
+        <img class="vector-12" src="img/vector-19.svg" />
+        <img class="vector-13" src="img/vector-20.svg" />
+      </div>
+      <div class="text-wrapper-6">Scorri</div>
+      <div class="rectangle-3"></div>
+      <img class="mask-group-2" src="img/image.png" />
+    </div>
+  </body>
+</html><!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +75,6 @@
         html { 
             scroll-snap-type: y mandatory; 
             scroll-behavior: smooth;
-            overscroll-behavior-y: contain;
         }
         body { 
             background-color: #000; 
@@ -19,7 +82,6 @@
             margin: 0; 
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            overscroll-behavior-y: contain;
         }
 
         section { 
@@ -58,14 +120,13 @@
 
         /* Menu Hamburger */
         .hamburger {
-            display: flex;
+            display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
             width: 25px;
             height: 18px;
             position: relative;
-            z-index: 60;
         }
         
         .hamburger span {
@@ -122,12 +183,13 @@
             display: block;
         }
         
-        /* Mobile-first: nasconde menu desktop, mostra burger */
-        .desktop-menu { display: none !important; }
-
-        @media (min-width: 851px) {
-            .hamburger { display: none; }
-            .desktop-menu { display: flex !important; }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .desktop-menu {
+                display: none;
+            }
         }
 
         /* Carosello Lavori */
@@ -288,6 +350,7 @@
         /* Footer con scroll-snap */
         footer {
             scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
     </style>
 </head>
@@ -295,9 +358,7 @@
 
     <nav class="fixed top-0 w-full z-50 border-b border-white/5">
         <div class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-            <a href="#home" class="block">
-                <img src="images/climatech.svg" alt="Climatech" class="h-8">
-            </a>
+            <img src="images/climatech.svg" alt="Climatech" class="h-8">
             
             <!-- Menu Desktop -->
             <ul class="desktop-menu flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-medium">
@@ -319,11 +380,11 @@
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="flex flex-col text-center text-sm uppercase tracking-[0.3em] font-medium">
-                <li class="pb-4 border-b border-white/10"><a href="#home" class="mobile-nav-link hover:text-gray-400 transition block">Home</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#lavori" class="mobile-nav-link hover:text-gray-400 transition block">Lavori</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#marchi" class="mobile-nav-link hover:text-gray-400 transition block">Marchi</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#contatti" class="mobile-nav-link hover:text-gray-400 transition block">Contatti</a></li>
-                <li class="pt-4"><a href="#collaborazioni" class="mobile-nav-link hover:text-gray-400 transition block">Collaborazioni</a></li>
+                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'home')">Home</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'lavori')">Lavori</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'marchi')">Marchi</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'contatti')">Contatti</a></li>
+                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'collaborazioni')">Collaborazioni</a></li>
             </ul>
         </div>
     </nav>
@@ -437,7 +498,7 @@
         </div>
     </section>
 
-    <section id="collaborazioni" class="bg-black pb-24 md:pb-32">
+    <section id="collaborazioni" class="bg-black">
         <div class="text-center px-6 reveal-container">
             <h2 class="text-4xl font-bold mb-16 reveal-item uppercase tracking-tighter">Collaborazioni</h2>
             <div class="reveal-item mb-10">
@@ -528,16 +589,26 @@
             mobileMenu.classList.remove('active');
         }
         
-        // Auto-close menu e gestisci scroll-snap quando si clicca un link mobile
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMenu();
-                document.documentElement.style.scrollSnapType = 'none';
-                setTimeout(() => {
-                    document.documentElement.style.scrollSnapType = 'y mandatory';
-                }, 500);
-            });
-        });
+        // Navigazione smooth per menu mobile (fix Safari iOS)
+        function navigateToSection(event, sectionId) {
+            event.preventDefault();
+            closeMenu();
+            
+            // Disabilita temporaneamente scroll-snap per Safari iOS
+            document.documentElement.style.scrollSnapType = 'none';
+            
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Riabilita scroll-snap dopo lo scroll
+                    setTimeout(() => {
+                        document.documentElement.style.scrollSnapType = 'y proximity';
+                    }, 1000);
+                }
+            }, 300);
+        }
         
         // Carosello Lavori
         const lavoriData = [
