@@ -1,68 +1,4 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="macbook-air">
-      <div class="group">
-        <div class="text-wrapper">Impianto canalizzato</div>
-        <img class="mask-group" src="img/mask-group.png" />
-      </div>
-      <div class="div">I nostri marchi</div>
-      <p class="installatori">
-        <span class="span">Installatori certificati </span>
-        <span class="text-wrapper-2">Daikin Comfort Store</span>
-        <span class="span"> e partner </span>
-        <span class="text-wrapper-2">Hisense</span>
-        <span class="span">. Portiamo l&#39;eccellenza dei leader mondiali della climatizzazione a casa tua.</span>
-      </p>
-      <img class="hero" src="img/hero-section2-1.png" />
-      <div class="group-2">
-        <img class="img" src="img/group.png" />
-        <div class="group-3">
-          <img class="vector" src="img/vector.svg" />
-          <img class="vector-2" src="img/vector-5.svg" />
-          <img class="vector-3" src="img/vector-3.svg" />
-          <img class="vector-4" src="img/vector-2.svg" />
-          <img class="vector-5" src="img/vector-8.svg" />
-          <img class="vector-6" src="img/image.svg" />
-          <img class="vector-7" src="img/vector-7.svg" />
-          <img class="vector-8" src="img/vector-6.svg" />
-          <img class="vector-9" src="img/vector-4.svg" />
-        </div>
-      </div>
-      <img class="vector-10" src="img/vector-10-2.svg" />
-      <div class="navbar">
-        <div class="text-wrapper-3">Home</div>
-        <div class="text-wrapper-3">Contatti</div>
-        <div class="text-wrapper-3">Lavori</div>
-        <div class="text-wrapper-3">Listino</div>
-        <div class="text-wrapper-3">Collaborazioni</div>
-      </div>
-      <div class="frame"><img class="instagram" src="img/instagram.svg" /></div>
-      <div class="facebook-wrapper"><img class="facebook" src="img/facebook.svg" /></div>
-      <img class="frame-2" src="img/frame-8713.svg" />
-      <div class="div-wrapper"><p class="p">Contattaci e ottieni il tuo preventivo</p></div>
-      <div class="rectangle"></div>
-      <div class="rectangle-2"></div>
-      <div class="text-wrapper-4">Whatsapp</div>
-      <div class="text-wrapper-5">Mail</div>
-      <div class="group-4">
-        <img class="vector-11" src="img/vector-10.svg" />
-        <img class="vector-12" src="img/vector-19.svg" />
-        <img class="vector-13" src="img/vector-20.svg" />
-      </div>
-      <div class="text-wrapper-6">Scorri</div>
-      <div class="rectangle-3"></div>
-      <img class="mask-group-2" src="img/image.png" />
-    </div>
-  </body>
-</html><!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -120,13 +56,14 @@
 
         /* Menu Hamburger */
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
             width: 25px;
             height: 18px;
             position: relative;
+            z-index: 60;
         }
         
         .hamburger span {
@@ -183,13 +120,12 @@
             display: block;
         }
         
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            .desktop-menu {
-                display: none;
-            }
+        /* Mobile-first: nasconde menu desktop, mostra burger */
+        .desktop-menu { display: none !important; }
+
+        @media (min-width: 851px) {
+            .hamburger { display: none; }
+            .desktop-menu { display: flex !important; }
         }
 
         /* Carosello Lavori */
@@ -358,7 +294,9 @@
 
     <nav class="fixed top-0 w-full z-50 border-b border-white/5">
         <div class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-            <img src="images/climatech.svg" alt="Climatech" class="h-8">
+            <a href="#home" onclick="navigateToSection(event, 'home')" class="block">
+                <img src="images/climatech.svg" alt="Climatech" class="h-8">
+            </a>
             
             <!-- Menu Desktop -->
             <ul class="desktop-menu flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-medium">
@@ -513,9 +451,9 @@
     </section>
 
     <footer class="bg-black border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="max-w-7xl mx-auto px-6 py-8">
             <!-- Grid principale -->
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-4 gap-10 mb-8">
                 <!-- Logo e descrizione -->
                 <div>
                     <img src="images/climatech.svg" alt="Climatech" class="h-8 mb-4">
@@ -565,7 +503,7 @@
             </div>
 
             <!-- Divider -->
-            <div class="border-t border-white/10 my-8"></div>
+            <div class="border-t border-white/10 my-5"></div>
 
             <!-- Bottom footer -->
             <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
