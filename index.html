@@ -288,7 +288,6 @@
         /* Footer con scroll-snap */
         footer {
             scroll-snap-align: start;
-            scroll-snap-stop: always;
         }
     </style>
 </head>
@@ -529,9 +528,16 @@
             mobileMenu.classList.remove('active');
         }
         
-        // Auto-close menu quando si clicca un link mobile
+        // Auto-close menu e gestisci scroll-snap quando si clicca un link mobile
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', closeMenu);
+            link.addEventListener('click', (e) => {
+                closeMenu();
+                // Disabilita snap, permetti al browser di gestire il scroll-to-hash, poi riabilita dopo che snap è completo
+                document.documentElement.style.scrollSnapType = 'none';
+                setTimeout(() => {
+                    document.documentElement.style.scrollSnapType = 'y mandatory';
+                }, 500);
+            });
         });
         
         // Carosello Lavori
