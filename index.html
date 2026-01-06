@@ -296,7 +296,7 @@
 
     <nav class="fixed top-0 w-full z-50 border-b border-white/5">
         <div class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-            <a href="#home" onclick="navigateToSection(event, 'home')" class="block">
+            <a href="#home" class="block">
                 <img src="images/climatech.svg" alt="Climatech" class="h-8">
             </a>
             
@@ -320,11 +320,11 @@
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="flex flex-col text-center text-sm uppercase tracking-[0.3em] font-medium">
-                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'home')">Home</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'lavori')">Lavori</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'marchi')">Marchi</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'contatti')">Contatti</a></li>
-                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'collaborazioni')">Collaborazioni</a></li>
+                <li class="pb-4 border-b border-white/10"><a href="#home" class="mobile-nav-link hover:text-gray-400 transition block">Home</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#lavori" class="mobile-nav-link hover:text-gray-400 transition block">Lavori</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#marchi" class="mobile-nav-link hover:text-gray-400 transition block">Marchi</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#contatti" class="mobile-nav-link hover:text-gray-400 transition block">Contatti</a></li>
+                <li class="pt-4"><a href="#collaborazioni" class="mobile-nav-link hover:text-gray-400 transition block">Collaborazioni</a></li>
             </ul>
         </div>
     </nav>
@@ -529,16 +529,10 @@
             mobileMenu.classList.remove('active');
         }
         
-        // Navigazione smooth per menu mobile (fix Safari iOS)
-        function navigateToSection(event, sectionId) {
-            event.preventDefault();
-            closeMenu();
-
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
+        // Auto-close menu quando si clicca un link mobile
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
         
         // Carosello Lavori
         const lavoriData = [
