@@ -530,9 +530,8 @@
         
         // Auto-close menu e gestisci scroll-snap quando si clicca un link mobile
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
+            link.addEventListener('click', () => {
                 closeMenu();
-                // Disabilita snap, permetti al browser di gestire il scroll-to-hash, poi riabilita dopo che snap è completo
                 document.documentElement.style.scrollSnapType = 'none';
                 setTimeout(() => {
                     document.documentElement.style.scrollSnapType = 'y mandatory';
