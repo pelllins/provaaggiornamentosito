@@ -223,8 +223,12 @@
             display: flex;
         }
         
+        html.modal-open,
         body.modal-open {
             overflow: hidden;
+            height: 100%;
+            touch-action: none;
+            overscroll-behavior: contain;
         }
         
         .modal-content {
@@ -617,6 +621,7 @@
         let currentModal = 0;
         let currentModalImage = 0;
         let autoplayInterval;
+        let previousSnapType = '';
         
         // Inizializza dots
         const dotsContainer = document.getElementById('carouselDots');
@@ -665,13 +670,18 @@
             currentModalImage = 0;
             updateModalImage();
             document.getElementById('modal').classList.add('active');
+            previousSnapType = document.documentElement.style.scrollSnapType || getComputedStyle(document.documentElement).scrollSnapType;
+            document.documentElement.style.scrollSnapType = 'none';
+            document.documentElement.classList.add('modal-open');
             document.body.classList.add('modal-open');
             clearInterval(autoplayInterval);
         }
         
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
+            document.documentElement.classList.remove('modal-open');
             document.body.classList.remove('modal-open');
+            document.documentElement.style.scrollSnapType = previousSnapType || 'y mandatory';
             startAutoplay();
         }
         
