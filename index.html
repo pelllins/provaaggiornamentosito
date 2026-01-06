@@ -11,6 +11,7 @@
         html { 
             scroll-snap-type: y mandatory; 
             scroll-behavior: smooth;
+            overscroll-behavior-y: contain;
         }
         body { 
             background-color: #000; 
@@ -18,6 +19,7 @@
             margin: 0; 
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            overscroll-behavior-y: contain;
         }
 
         section { 
@@ -436,7 +438,7 @@
         </div>
     </section>
 
-    <section id="collaborazioni" class="bg-black">
+    <section id="collaborazioni" class="bg-black pb-24 md:pb-32">
         <div class="text-center px-6 reveal-container">
             <h2 class="text-4xl font-bold mb-16 reveal-item uppercase tracking-tighter">Collaborazioni</h2>
             <div class="reveal-item mb-10">
@@ -532,15 +534,10 @@
             event.preventDefault();
             closeMenu();
 
-            // Disabilita e riabilita subito lo scroll-snap per evitare glitch senza introdurre ritardi
-            document.documentElement.style.scrollSnapType = 'none';
-
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-
-            document.documentElement.style.scrollSnapType = 'y mandatory';
         }
         
         // Carosello Lavori
