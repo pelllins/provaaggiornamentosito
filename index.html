@@ -3,23 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Climatech | Official Site</title>
+    <title>Climatech</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            .custom-max-padding {
+                /* Padding rimosso */
+            }
+            @media (max-width: 767px) {
+                .hero-content-custom.custom-max-padding {
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                }
+            }
+        </style>
+    <!-- Preload LCP image with high priority -->
+    <link rel="preload" as="image" href="images/hero%20section.png" fetchpriority="high">
+    
+    <!-- SEO: Canonical and Description -->
+    <link rel="canonical" href="https://climatech.top/">
+    <meta name="description" content="Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" href="logo-climatech.png" type="image/svg+xml">
+    <link rel="icon" href="logo-climatech.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo-climatech.png">
+    <link rel="mask-icon" href="images/climatech.svg" color="#000000">
+
+    <!-- Open Graph (Social preview) -->
+    <meta property="og:site_name" content="Climatech">
+    <meta property="og:title" content="Climatech | Official Site">
+    <meta property="og:description" content="Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://climatech.top/">
+    <meta property="og:image" content="https://climatech.top/images/hero%20section.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Climatech | Official Site">
+    <meta name="twitter:description" content="Soluzioni di climatizzazione su misura per ogni esigenza.">
+    <meta name="twitter:image" content="https://climatech.top/images/hero%20section.png">
+     <meta name="description" content="Climatech Galliate: installazione, assistenza e vendita di climatizzatori Daikin e Hisense a Galliate e Novara. Richiedi subito un preventivo gratuito!">
+  <meta name="keywords" content="climatech, climatec, climatizzazione, condizionatori, installazione, Galliate, Novara, assistenza, preventivo, daikin, hisense, comfort store, fabio pellino, fabio pellino climatizzazione, fabio pellino condizionatori, fabio pellino assistenza, fabio pellino preventivo, fabio pellino daikin, fabio pellino hisense, fabio pellino comfort store">
+  
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Climatech",
+  "image": "https://www.climatech.top/logo-climatech.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Gorizia 22",
+    "addressLocality": "Galliate",
+    "addressRegion": "NO",
+    "postalCode": "28066",
+    "addressCountry": "IT"
+  },
+  "telephone": "+39 333 797 3602",
+  "email": "fabio.pellino23@gmail.com",
+  "url": "https://www.climatech.top/",
+  "openingHours": "Mo-Fr 09:00-19:00"
+}
+</script>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5">
-        <div class="flex justify-between items-center p-6 max-w-7xl mx-auto">
+    <nav class="fixed top-0 w-full z-50 border-b-2 border-white/30 bg-transparent shadow-none" style="box-shadow:none;">
+        <div class="flex justify-between items-center py-6 px-4 custom-max-padding max-w-7xl mx-auto">
             <a href="#home" aria-label="Vai alla Home" class="inline-flex items-center">
                 <img src="images/climatech.svg" alt="Climatech" class="h-8">
             </a>
             
             <!-- Menu Desktop -->
-            <ul class="desktop-menu flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-medium">
+            <ul class="desktop-menu hidden custom900:flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-medium">
                 <li><a href="#home" class="hover:text-gray-400 transition">Home</a></li>
                 <li><a href="#lavori" class="hover:text-gray-400 transition">Lavori</a></li>
                 <li><a href="#marchi" class="hover:text-gray-400 transition">Marchi</a></li>
@@ -38,11 +98,11 @@
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="flex flex-col text-center text-sm uppercase tracking-[0.3em] font-medium">
-                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'home')">Home</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'lavori')">Lavori</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'marchi')">Marchi</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'contatti')">Contatti</a></li>
-                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block" onclick="navigateToSection(event, 'collaborazioni')">Collaborazioni</a></li>
+                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block">Home</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block">Lavori</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block">Marchi</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block">Contatti</a></li>
+                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block">Collaborazioni</a></li>
             </ul>
         </div>
     </nav>
@@ -51,17 +111,85 @@
         <div class="absolute inset-0 z-0">
             <img src="images/hero%20section.png" class="w-full h-full object-cover opacity-50" alt="Home" loading="eager" fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            <!-- Social vertical bar -->
+            <div class="hidden custom900:flex flex-row items-end gap-0 absolute left-[85vw] top-1/2 -translate-y-1/2 w-fit reveal-container" style="left:calc(85vw); right:auto; min-width:unset;">
+                <!-- Scritta Scorri verticale, allineata alla base della freccia, animata -->
+                <div class="flex flex-col justify-center h-full reveal-item">
+                    <span class="text-xs text-white/70 tracking-widest select-none self-center" style="writing-mode: vertical-rl; transform: rotate(180deg); margin-top: -140px; margin-right:0;">Scorri</span>
+                </div>
+                <!-- Social + Freccia in colonna, animata -->
+                <div class="flex flex-col items-center justify-start reveal-item">
+                    <div class="flex flex-col items-center gap-4 mb-10 p-0 m-0">
+                        <a href="https://www.instagram.com/climatech_galliate" target="_blank" rel="noopener noreferrer" class="group">
+                            <span class="w-9 h-9 flex items-center justify-center transition">
+                                <img src="svg cerchi/Frame 161.svg" alt="Instagram" class="w-9 h-9"/>
+                            </span>
+                        </a>
+                        <a href="https://www.facebook.com/people/Climatech-di-Pellino-Fabio/100057446426742/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="group">
+                            <span class="w-9 h-9 flex items-center justify-center transition">
+                                <img src="svg cerchi/Frame 160.svg" alt="Facebook" class="w-9 h-9"/>
+                            </span>
+                        </a>
+                        <a href="https://wa.me/393337973602" target="_blank" rel="noopener noreferrer" class="group">
+                            <span class="w-9 h-9 flex items-center justify-center transition">
+                                <img src="svg cerchi/Frame 8713.svg" alt="Whatsapp" class="w-9 h-9"/>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="flex flex-col items-center w-fit p-0 m-0" style="min-width:unset; margin-top:40px;">
+                        <svg id="hero-arrow" class="arrow-animate" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.95 110.8" width="70" height="140" style="display:block; margin-top:0px; width:70px; height:140px;">
+                            <path d="M7.97,0c.22,0,.4.18.4.4v106.86c.17-.35.37-.69.57-1.02.81-1.27,1.86-2.42,2.88-3.36,1.02-.95,2-1.7,2.66-2.19.28-.21.51-.37.65-.47.04-.06.09-.11.15-.14.03-.01.07-.03.1-.05,0,0,.03,0,.04-.01.01,0,.06-.02.12-.01.03,0,.1,0,.18.05.1.05.18.15.2.28.02.1-.01.18-.02.22-.02.04-.03.07-.04.08-.03.05-.07.08-.08.08-.01.01-.03.02-.04.03-.02.02-.06.04-.09.07-.15.11-.38.27-.71.51-.65.48-1.6,1.21-2.59,2.13-.99.92-1.99,2.01-2.75,3.21-.76,1.19-1.25,2.46-1.25,3.73h0c0,.22-.18.4-.4.4s-.4-.18-.4-.4h0c0-1.27-.49-2.51-1.25-3.66-.75-1.15-1.76-2.18-2.74-3.04-.98-.86-1.94-1.54-2.58-1.97-.32-.22-.57-.37-.71-.46-.03-.02-.06-.04-.08-.05-.01,0-.02-.01-.03-.02,0,0-.03-.02-.06-.05,0,0-.03-.03-.05-.07-.01-.02-.04-.07-.05-.1-.01-.05-.01-.19,0-.27.04-.08.16-.19.22-.23.04-.01.12-.03.15-.03.05,0,.09,0,.1.01.04,0,.07.03.08.03.02,0,.05.02.08.04.05.02.09.06.12.09.14.09.38.24.67.44.67.44,1.65,1.14,2.67,2.03,1.02.89,2.08,1.98,2.88,3.21.21.32.41.65.58.99V.4c0-.22.18-.4.4-.4Z" shape-rendering="crispEdges" style="fill: rgba(255, 255, 255, .3); stroke: rgba(255,255,255,0.3); stroke-width:0.6;"/>
+                        </svg>
+                        <script>
+                        // Animazione freccia hero: la freccia scompare solo quando la hero è completamente fuori
+                        (function() {
+                            const arrow = document.getElementById('hero-arrow');
+                            if (!arrow) return;
+                            function onScroll() {
+                                const homeSection = document.getElementById('home');
+                                if (!homeSection) return;
+                                const rect = homeSection.getBoundingClientRect();
+                                // Nascondi la freccia solo quando la hero è completamente fuori dallo schermo
+                                if (rect.bottom < 10 || rect.top < -rect.height + 10) {
+                                    arrow.classList.add('hide');
+                                } else {
+                                    arrow.classList.remove('hide');
+                                }
+                            }
+                            window.addEventListener('scroll', onScroll, { passive: true });
+                            onScroll();
+                        })();
+                        </script>
+                    </div>
+                </div>
+            </div>
+                        </div>
+            </div>
+            <!-- End Social vertical bar -->
         </div>
-        <div class="relative z-10 text-center px-6 reveal-container">
-            <h1 class="font-semibold text-[50px] mb-10 leading-tight reveal-item" style="font-family: 'Poppins', sans-serif;">Contattaci e<br>ottieni il tuo preventivo</h1>
-            <div class="flex flex-col md:flex-row gap-4 justify-center reveal-item max-w-xs mx-auto md:max-w-none">
-                <a href="https://wa.me/393337973602" class="bg-white text-black px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition">Whatsapp</a>
-                <a href="mailto:fabio.pellino23@gmail.com" class="border border-white/30 px-12 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-black transition">Mail</a>
+        <div class="relative z-10 custom900:text-left flex flex-col reveal-container hero-content-custom px-4" style="margin-top: -170px;">
+            <!-- Removed duplicate heading, only mt-8 version remains -->
+            <div class="max-w-7xl mx-auto w-full">
+                           <h1 class="font-semibold text-[38px] custom900:text-[50px] mb-4 leading-tight reveal-item titolo-desktop" style="font-family: 'Poppins', sans-serif;">Installazione e<br>Manutenzione Climatizzatori</h1>
+                           <h1 class="font-semibold text-[32px] mb-4 leading-tight reveal-item titolo-mobile">Installazione e<br>Manutenzione<br>Climatizzatori</h1>
+                           <p class="text-lg text-gray-300 mb-2 reveal-item descrizione-desktop">Soluzioni di climatizzazione su misura: vendita, installazione<br>e manutenzione.<span class="font-bold text-white"> Partner ufficiali Daikin e Hisense.</span></p>
+                           <p class="text-lg text-gray-300 mb-2 reveal-item descrizione-mobile">Soluzioni di climatizzazione su<br>misura:vendita, installazione e<br>manutenzione.<span class="font-bold text-white">Partner ufficiali<br>Daikin e Hisense.</span></p>
+                                    <style>
+                                        @media (min-width: 768px) {
+                                            .hero-content-custom { margin-top: -160px; }
+                                        }
+                                    </style>
+            <div class="flex flex-row gap-4 justify-center custom900:justify-start reveal-item custom900:mx-0 custom900:max-w-none">
+                <a href="https://wa.me/393337973602" class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition">Scrivici</a>
+                <a href="mailto:fabio.pellino23@gmail.com" class="border border-white/30 px-6 py-3 rounded-full font-bold text-sm hover:bg-white hover:text-black transition">Chiama Ora</a>
+            </div>
+        </div>
+                        <div class="max-w-7xl mx-auto w-full flex flex-row items-end gap-0 w-fit" style="left:calc(85vw); right:auto; min-width:unset;">
             </div>
         </div>
     </section>
 
-    <section id="lavori">
+        <section id="lavori">
         <div class="max-w-6xl w-full mx-auto px-4 md:px-6 md:py-0 reveal-container">
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 bg-[#111] p-6 md:p-16 rounded-[40px] border border-white/5 items-center">
                 <div class="reveal-item">
@@ -169,7 +297,7 @@
     </section>
 
     <footer class="bg-black border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="max-w-7xl mx-auto px-6 pt-8 md:pt-12 pb-6">
             <!-- Grid principale -->
             <div class="grid md:grid-cols-4 gap-10 mb-8">
                 <!-- Logo e descrizione -->
@@ -230,20 +358,46 @@
         </div>
     </footer>
 
+    <!-- Spacer invisibile per evitare scatti su Safari mobile -->
+    <div class="spacer-mobile h-2 bg-black" style="scroll-snap-align: none;"></div>
+
     <script>
-        // Menu Hamburger Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+                // Menu Hamburger Toggle
+                const hamburger = document.getElementById('hamburger');
+                const mobileMenu = document.getElementById('mobileMenu');
         
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
+                hamburger.addEventListener('click', () => {
+                        hamburger.classList.toggle('active');
+                        mobileMenu.classList.toggle('active');
+                });
         
-        function closeMenu() {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-        }
+                function closeMenu() {
+                        hamburger.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                }
+
+                // IntersectionObserver per reveal-container (come da riferimentopubb1)
+                const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                        entry.target.classList.add('visible');
+                                } else {
+                                        entry.target.classList.remove('visible');
+                                }
+                        });
+                }, { threshold: 0.5 });
+
+                // Reveal animazioni SOLO per le sezioni sotto la home
+                const sectionIds = ['lavori', 'marchi', 'contatti', 'collaborazioni'];
+                sectionIds.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) {
+                        const containers = section.querySelectorAll('.reveal-container');
+                        containers.forEach(container => {
+                            observer.observe(container);
+                        });
+                    }
+                });
 
         // Footer reveal transition
         const footerEl = document.querySelector('footer');
@@ -263,30 +417,84 @@
         }
         
         // Navigazione smooth per link navbar (desktop e mobile) con ripristino scroll-snap
-        const snapRestoreDelay = 900;
+        let isScrolling = false;
+
+        // Rileva Safari mobile
+        function isSafariMobile() {
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            const isMobile = /iPhone|iPad|iPod/.test(navigator.userAgent);
+            return isSafari && isMobile;
+        }
 
         function smoothScrollTo(hash) {
-            if (!hash || hash === '#') return;
+            if (!hash || hash === '#' || isScrolling) return;
             const target = document.querySelector(hash);
             if (!target) return;
 
-            // Disabilita snap per evitare conflitti durante lo scroll smooth
-            document.documentElement.style.scrollSnapType = 'none';
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            isScrolling = true;
 
-            setTimeout(() => {
-                document.documentElement.style.scrollSnapType = 'y mandatory';
-            }, snapRestoreDelay);
+            // Calcola la distanza da scrollare
+            const currentPos = window.scrollY;
+            const targetPos = target.offsetTop;
+            const distance = Math.abs(targetPos - currentPos);
+            
+            // Calcola il delay dinamicamente: min 200ms, max 1000ms
+            const delay = Math.min(1000, 200 + (distance / 1000) * 800);
+
+            // Determina il block alignment: footer va in fondo, altri in cima
+            const blockAlign = target.tagName === 'FOOTER' ? 'end' : 'start';
+
+            // Su Safari mobile: strategia speciale per evitare il bug di ritorno
+            if (isSafariMobile()) {
+                // 1. Disabilita lo snap
+                document.documentElement.style.scrollSnapType = 'none';
+                
+                // 2. Fai un micro-scroll per resettare lo stato di Safari
+                window.scrollBy(0, 1);
+                
+                // 3. Aspetta un frame, poi fai lo scroll vero
+                requestAnimationFrame(() => {
+                    if (target.tagName === 'FOOTER') {
+                        // Per footer: scroll con offset per evitare la barra di ricerca Safari
+                        const footerTop = target.offsetTop;
+                        const offset = 80; // spazio per la barra di ricerca
+                        const scrollPosition = footerTop - window.innerHeight + offset;
+                        window.scrollTo({
+                            top: Math.max(0, scrollPosition),
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // Per altre sezioni: scrollIntoView normale
+                        target.scrollIntoView({ behavior: 'smooth', block: blockAlign });
+                    }
+                    
+                    // 4. Riabilita lo snap dopo che lo scroll è finito (delay dinamico)
+                    setTimeout(() => {
+                        document.documentElement.style.scrollSnapType = 'y mandatory';
+                        isScrolling = false;
+                    }, delay);
+                });
+            } else {
+                // Su altri browser: comportamento normale
+                document.documentElement.style.scrollSnapType = 'none';
+                target.scrollIntoView({ behavior: 'smooth', block: blockAlign });
+
+                setTimeout(() => {
+                    document.documentElement.style.scrollSnapType = 'y mandatory';
+                    isScrolling = false;
+                }, delay);
+            }
         }
 
         function wireNavLinks() {
-            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a, a[href="#home"]');
+            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a');
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
                     if (!href || !href.startsWith('#')) return;
                     e.preventDefault();
-                    // Chiudi sempre il menu mobile
+                    // Chiudi il menu mobile
                     closeMenu();
                     smoothScrollTo(href);
                 });
@@ -330,6 +538,7 @@
             let carouselDragCurrentX = 0;
             const carouselDragThreshold = 30;
             
+            // Mouse events
             carouselContainer.addEventListener('mousedown', (e) => {
                 isCarouselDragging = true;
                 carouselDragStartX = e.clientX;
@@ -346,36 +555,63 @@
             document.addEventListener('mouseup', (e) => {
                 if (!isCarouselDragging) return;
                 isCarouselDragging = false;
-                
-                const dragDistance = carouselDragStartX - carouselDragCurrentX;
-                const dragVertical = Math.abs(e.clientY - carouselDragStartY);
-                
-                // Se il movimento verticale è troppo grande, ignora
-                if (dragVertical > 10) {
-                    return;
-                }
-                
-                // Se è un vero drag (oltre la soglia), scorre il carosello
-                if (Math.abs(dragDistance) > carouselDragThreshold) {
-                    if (dragDistance > 0) {
-                        changeSlide(1); // Drag a sinistra = prossima slide
-                    } else {
-                        changeSlide(-1); // Drag a destra = slide precedente
-                    }
-                } else {
-                    // Se è solo un click, apri il modal
-                    const slides = document.querySelectorAll('.carousel-slide');
-                    slides.forEach(slide => {
-                        const rect = slide.getBoundingClientRect();
-                        if (e.clientX >= rect.left && e.clientX <= rect.right &&
-                            e.clientY >= rect.top && e.clientY <= rect.bottom) {
-                            const workIndex = parseInt(slide.getAttribute('data-index'));
-                            openModal(workIndex);
-                        }
-                    });
+                handleCarouselDragEnd(e, carouselDragStartX, carouselDragCurrentX, carouselDragStartY);
+            });
+
+            // Touch events per mobile
+            carouselContainer.addEventListener('touchstart', (e) => {
+                isCarouselDragging = true;
+                carouselDragStartX = e.touches[0].clientX;
+                carouselDragStartY = e.touches[0].clientY;
+                carouselDragCurrentX = carouselDragStartX;
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (isCarouselDragging) {
+                    carouselDragCurrentX = e.touches[0].clientX;
                 }
             });
+
+            document.addEventListener('touchend', (e) => {
+                if (!isCarouselDragging) return;
+                isCarouselDragging = false;
+                handleCarouselDragEnd(e, carouselDragStartX, carouselDragCurrentX, carouselDragStartY);
+            });
         }
+
+        function handleCarouselDragEnd(e, startX, currentX, startY) {
+            const carouselDragThreshold = 30;
+            const dragDistance = startX - currentX;
+            const dragVertical = Math.abs((e.touches?.[0]?.clientY || e.clientY) - startY);
+            
+            // Se il movimento verticale è troppo grande, ignora
+            if (dragVertical > 10) {
+                return;
+            }
+            
+            // Se è un vero drag (oltre la soglia), scorre il carosello
+            if (Math.abs(dragDistance) > carouselDragThreshold) {
+                if (dragDistance > 0) {
+                    changeSlide(1); // Drag a sinistra = prossima slide
+                } else {
+                    changeSlide(-1); // Drag a destra = slide precedente
+                }
+            } else {
+                // Se è solo un click/tap, apri il modal
+                const slides = document.querySelectorAll('.carousel-slide');
+                const clientX = e.touches?.[0]?.clientX || e.clientX;
+                const clientY = e.touches?.[0]?.clientY || e.clientY;
+                slides.forEach(slide => {
+                    const rect = slide.getBoundingClientRect();
+                    if (clientX >= rect.left && clientX <= rect.right &&
+                        clientY >= rect.top && clientY <= rect.bottom) {
+                        const workIndex = parseInt(slide.getAttribute('data-index'));
+                        openModal(workIndex);
+                    }
+                });
+            }
+        }
+        
         
         function changeSlide(direction) {
             currentSlide = (currentSlide + direction + lavoriData.length) % lavoriData.length;
@@ -430,6 +666,45 @@
             idxs.add((currentSlide - 1 + total) % total);
             idxs.add((currentSlide - 2 + total) % total);
             idxs.forEach(i => preloadImage(slideImgs[i]?.src));
+        }
+
+        // Precaricamento progressivo: slide 1 → slide 2-7 → modal
+        function startProgressivePreloading() {
+            // Attendi un po' che la slide 1 sia caricata, poi precarica le slide 2-7 in ordine
+            setTimeout(() => {
+                const slideImgs = document.querySelectorAll('.carousel-slide img');
+                let slideIndex = 1; // Inizia dalla slide 2 (index 1)
+                
+                const preloadNextSlide = () => {
+                    if (slideIndex >= slideImgs.length) {
+                        // Tutte le slide caricate, ora precarica il modal
+                        setTimeout(() => {
+                            preloadAllModalImages();
+                        }, 300);
+                        return;
+                    }
+                    
+                    // Precarica la slide attuale
+                    const img = slideImgs[slideIndex];
+                    if (img && img.src) {
+                        preloadImage(img.src);
+                    }
+                    
+                    slideIndex++;
+                    // Attendi 150ms prima di precarricare la prossima slide
+                    setTimeout(preloadNextSlide, 150);
+                };
+                
+                preloadNextSlide();
+            }, 500); // Attendi 500ms prima di iniziare (la slide 1 è già caricata)
+        }
+
+        // Precarica tutte le immagini del modal in background
+        function preloadAllModalImages() {
+            lavoriData.forEach(work => {
+                const base = `images/lavori/${work.folder}/`;
+                work.images.forEach(img => preloadImage(base + img));
+            });
         }
         
         // Modal
@@ -537,21 +812,30 @@
 
         // Precarica subito le immagini vicine alla slide iniziale
         preloadCarouselNeighbors();
+
+        // Avvia il precaricamento progressivo: carosello → slide interne → modal
+        startProgressivePreloading();
         
         // Gestore delle animazioni per singola sezione
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.5 });
-
+        // Applica subito la classe .visible a tutte le .reveal-container (fallback per dispositivi/browser che non triggerano l'observer)
         document.querySelectorAll('.reveal-container').forEach(container => {
-            observer.observe(container);
+            container.classList.add('visible');
         });
+        // IntersectionObserver per animazioni progressive (se supportato)
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.reveal-container').forEach(container => {
+                observer.observe(container);
+            });
+        }
     </script>
 </body>
 </html>
