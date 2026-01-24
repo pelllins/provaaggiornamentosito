@@ -379,16 +379,20 @@
     <section id="collaborazioni" class="bg-black pb-24 md:pb-32">
         <div class="text-center px-6 reveal-container">
             <h2 class="text-4xl font-bold mb-16 reveal-item uppercase tracking-tighter">Collaborazioni</h2>
-            <div class="reveal-item mb-10">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 mb-10 reveal-item">
                 <a href="https://www.novarabasket.it" target="_blank" rel="noopener noreferrer" class="inline-block">
                     <img src="images/novarabasket.svg" alt="Novara Basket"
                         class="h-32 md:h-48 mx-auto hover:opacity-80 transition" loading="lazy" decoding="async">
                 </a>
+                <a href="https://basketgalliate.com/" target="_blank" rel="noopener noreferrer" class="inline-block">
+                    <img src="images/logo_basket_galliate.svg" alt="Basket Galliate"
+                        class="h-32 md:h-48 mx-auto hover:opacity-80 transition" loading="lazy" decoding="async">
+                </a>
             </div>
-            <p class="max-w-xl mx-auto text-gray-500 text-lg italic leading-relaxed reveal-item">
-                Supportiamo con orgoglio la realtà del <span class="text-white">Novara Basket</span>. Per tutti i membri
-                e tesserati della società, offriamo condizioni agevolate e <span class="text-white font-bold">sconti
-                    esclusivi</span> sui nostri lavori.
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg italic leading-relaxed reveal-item">
+                Supportiamo con orgoglio le realtà del <span class="text-white">Novara Basket</span> e del <span
+                    class="text-white">Basket Galliate</span>. Per tutti i membri e tesserati delle società, offriamo
+                condizioni agevolate e <span class="text-white font-bold">sconti esclusivi</span> sui nostri lavori.
             </p>
         </div>
     </section>
@@ -399,10 +403,7 @@
             <div class="grid md:grid-cols-4 gap-10 mb-8">
                 <!-- Logo e descrizione -->
                 <div>
-                    <a href="#home" class="inline-block hover:opacity-80 transition" aria-label="Torna alla Home">
-                        <img src="images/climatech.svg" alt="Climatech" class="h-8 mb-4" loading="lazy"
-                            decoding="async">
-                    </a>
+                    <img src="images/climatech.svg" alt="Climatech" class="h-8 mb-4" loading="lazy" decoding="async">
                     <p class="text-gray-500 text-sm leading-relaxed">Soluzioni di climatizzazione su misura per ogni
                         esigenza. Installatori certificati Daikin e Hisense.</p>
                 </div>
@@ -604,7 +605,7 @@
         }
 
         function wireNavLinks() {
-            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a, footer a[href^="#"], a[aria-label="Vai alla Home"], a[aria-label="Torna alla Home"]');
+            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a, footer a[href^="#"], a[aria-label="Vai alla Home"]');
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
