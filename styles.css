@@ -448,11 +448,11 @@ footer.footer-visible {
     }
 }
 
-/* Fluid Sizing for Sponsor Logos */
+/* Fluid Sizing for Sponsor Logos - Scales constantly from 320px to 1440px */
 .logo-fluid {
-    height: clamp(80px, 15vw, 192px);
+    height: clamp(80px, calc(40px + 12vw), 192px);
     width: auto;
-    max-width: 40vw;
+    max-width: 42vw;
     object-fit: contain;
 }
 
