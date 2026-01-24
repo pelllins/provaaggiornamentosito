@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="styles.css">
-        <style>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .custom-max-padding {
+            /* Padding rimosso */
+        }
+
+        @media (max-width: 767px) {
             .custom-max-padding {
-                /* Padding rimosso */
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
-            @media (max-width: 767px) {
-                .hero-content-custom.custom-max-padding {
-                    padding-left: 0 !important;
-                    padding-right: 0 !important;
-                }
+
+            /* Ripristina padding navbar sui dispositivi stretti - regola più specifica per sovrascrivere .custom-max-padding */
+            nav>div.custom-max-padding {
+                padding-left: 2rem !important;
+                /* px-8 equivalente */
+                padding-right: 2rem !important;
             }
-        </style>
+        }
+    </style>
     <!-- Preload LCP image with high priority -->
     <link rel="preload" as="image" href="images/hero%20section.png" fetchpriority="high">
-    
+
     <!-- SEO: Canonical and Description -->
     <link rel="canonical" href="https://climatech.top/">
-    <meta name="description" content="Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.">
+    <meta name="description"
+        content="Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.">
 
     <!-- Favicon & Icons -->
     <link rel="icon" href="logo-climatech.png" type="image/svg+xml">
@@ -36,7 +46,8 @@
     <!-- Open Graph (Social preview) -->
     <meta property="og:site_name" content="Climatech">
     <meta property="og:title" content="Climatech | Official Site">
-    <meta property="og:description" content="Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.">
+    <meta property="og:description"
+        content="Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://climatech.top/">
     <meta property="og:image" content="https://climatech.top/images/hero%20section.png">
@@ -46,9 +57,11 @@
     <meta name="twitter:title" content="Climatech | Official Site">
     <meta name="twitter:description" content="Soluzioni di climatizzazione su misura per ogni esigenza.">
     <meta name="twitter:image" content="https://climatech.top/images/hero%20section.png">
-     <meta name="description" content="Climatech Galliate: installazione, assistenza e vendita di climatizzatori Daikin e Hisense a Galliate e Novara. Richiedi subito un preventivo gratuito!">
-  <meta name="keywords" content="climatech, climatec, climatizzazione, condizionatori, installazione, Galliate, Novara, assistenza, preventivo, daikin, hisense, comfort store, fabio pellino, fabio pellino climatizzazione, fabio pellino condizionatori, fabio pellino assistenza, fabio pellino preventivo, fabio pellino daikin, fabio pellino hisense, fabio pellino comfort store">
-  
+    <meta name="description"
+        content="Climatech Galliate: installazione, assistenza e vendita di climatizzatori Daikin e Hisense a Galliate e Novara. Richiedi subito un preventivo gratuito!">
+    <meta name="keywords"
+        content="climatech, climatec, climatizzazione, condizionatori, installazione, Galliate, Novara, assistenza, preventivo, daikin, hisense, comfort store, fabio pellino, fabio pellino climatizzazione, fabio pellino condizionatori, fabio pellino assistenza, fabio pellino preventivo, fabio pellino daikin, fabio pellino hisense, fabio pellino comfort store">
+
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,14 +83,38 @@
 }
 </script>
 </head>
+
 <body>
 
     <nav class="fixed top-0 w-full z-50 border-b-2 border-white/30 bg-transparent shadow-none" style="box-shadow:none;">
-        <div class="flex justify-between items-center py-6 px-4 custom-max-padding max-w-7xl mx-auto">
+        <div class="flex justify-between items-center py-6 px-8 custom-max-padding max-w-7xl mx-auto">
+            <style>
+                .navbar-mobile-bg {
+                    background: rgba(0, 0, 0, 0.85) !important;
+                }
+
+                /* Ensure hero wrapper matches navbar max-width and padding without debug outlines */
+                .hero-wrapper {
+                    max-width: 80rem;
+                    /* same as max-w-7xl */
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                /* On small screens ensure the hero uses the same lateral padding as the navbar */
+                @media (max-width: 767px) {
+                    section#home .custom-max-padding {
+                        padding-left: 2rem !important;
+                        padding-right: 2rem !important;
+                    }
+                }
+            </style>
             <a href="#home" aria-label="Vai alla Home" class="inline-flex items-center">
                 <img src="images/climatech.svg" alt="Climatech" class="h-8">
             </a>
-            
+
             <!-- Menu Desktop -->
             <ul class="desktop-menu hidden custom900:flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-medium">
                 <li><a href="#home" class="hover:text-gray-400 transition">Home</a></li>
@@ -86,7 +123,7 @@
                 <li><a href="#contatti" class="hover:text-gray-400 transition">Contatti</a></li>
                 <li><a href="#collaborazioni" class="hover:text-gray-400 transition">Collaborazioni</a></li>
             </ul>
-            
+
             <!-- Hamburger Button -->
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -94,138 +131,187 @@
                 <span></span>
             </div>
         </div>
-        
+
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="flex flex-col text-center text-sm uppercase tracking-[0.3em] font-medium">
-                <li class="pb-4 border-b border-white/10"><a href="#home" class="hover:text-gray-400 transition block">Home</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#lavori" class="hover:text-gray-400 transition block">Lavori</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#marchi" class="hover:text-gray-400 transition block">Marchi</a></li>
-                <li class="py-4 border-b border-white/10"><a href="#contatti" class="hover:text-gray-400 transition block">Contatti</a></li>
-                <li class="pt-4"><a href="#collaborazioni" class="hover:text-gray-400 transition block">Collaborazioni</a></li>
+                <li class="pb-4 border-b border-white/10"><a href="#home"
+                        class="hover:text-gray-400 transition block">Home</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#lavori"
+                        class="hover:text-gray-400 transition block">Lavori</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#marchi"
+                        class="hover:text-gray-400 transition block">Marchi</a></li>
+                <li class="py-4 border-b border-white/10"><a href="#contatti"
+                        class="hover:text-gray-400 transition block">Contatti</a></li>
+                <li class="pt-4"><a href="#collaborazioni"
+                        class="hover:text-gray-400 transition block">Collaborazioni</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home">
         <div class="absolute inset-0 z-0">
-            <img src="images/hero%20section.png" class="w-full h-full object-cover opacity-50" alt="Home" loading="eager" fetchpriority="high">
+            <img src="images/hero%20section.png" class="w-full h-full object-cover opacity-50" alt="Home"
+                loading="eager" fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-            <!-- Social vertical bar -->
-            <div class="hidden custom900:flex flex-row items-end gap-0 absolute left-[85vw] top-1/2 -translate-y-1/2 w-fit reveal-container" style="left:calc(85vw); right:auto; min-width:unset;">
-                <!-- Scritta Scorri verticale, allineata alla base della freccia, animata -->
-                <div class="flex flex-col justify-center h-full reveal-item">
-                    <span class="text-xs text-white/70 tracking-widest select-none self-center" style="writing-mode: vertical-rl; transform: rotate(180deg); margin-top: -140px; margin-right:0;">Scorri</span>
+        </div>
+        <!-- Hero Content Container -->
+        <div class="flex justify-between items-center py-6 px-8 custom-max-padding max-w-7xl mx-auto relative z-10 hero-wrapper"
+            style="margin-top: 0; min-height: calc(100svh - 4rem);">
+            <!-- Left Section: Texts and Buttons -->
+            <div class="flex flex-col custom900:text-left reveal-container hero-content-custom w-full">
+                <h1 class="font-semibold text-[38px] custom900:text-[50px] mb-4 leading-tight reveal-item titolo-desktop"
+                    style="font-family: 'Poppins', sans-serif;">Installazione e<br>Manutenzione Climatizzatori</h1>
+                <h1 class="font-semibold text-[38px] mb-4 leading-tight reveal-item titolo-mobile">Installazione
+                    e<br>Manutenzione<br>Climatizzatori</h1>
+                <p class="text-lg text-gray-300 mb-2 reveal-item descrizione-desktop">Soluzioni su misura, dalla vendita
+                    all'assistenza tecnica.<br><span class="font-bold text-white">Partner ufficiali Daikin e
+                        Hisense.</span></p>
+                <p class="text-lg text-gray-300 mb-2 reveal-item descrizione-mobile">Soluzioni su misura,
+                    dalla<br>vendita all'assistenza tecnica.<br><span class="font-bold text-white">Partner ufficiali
+                        Daikin e Hisense.</span></p>
+                <div
+                    class="flex flex-row gap-4 justify-center custom900:justify-start reveal-item custom900:mx-0 custom900:max-w-none mt-4">
+                    <a href="https://wa.me/393337973602"
+                        class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition">Scrivici</a>
+                    <a href="tel:+393337973602"
+                        class="border border-white/30 px-6 py-3 rounded-full font-bold text-sm hover:bg-white hover:text-black transition">Chiama
+                        Ora</a>
                 </div>
-                <!-- Social + Freccia in colonna, animata -->
-                <div class="flex flex-col items-center justify-start reveal-item">
-                    <div class="flex flex-col items-center gap-4 mb-10 p-0 m-0">
-                        <a href="https://www.instagram.com/climatech_galliate" target="_blank" rel="noopener noreferrer" class="group">
+            </div>
+            <!-- Right Section: Social, Scorri, Arrow -->
+            <div id="hero-right" class="hidden custom900:flex flex-row items-end gap-4 reveal-container h-full">
+                <!-- Scritta Scorri verticale -->
+                <div id="hero-scroll-label" class="flex flex-col justify-center h-full reveal-item"
+                    style="transform: translateY(-45px) translateX(20px);">
+                    <span class="text-xs text-white/70 tracking-widest select-none"
+                        style="writing-mode: vertical-rl; transform: rotate(180deg); margin-right:0;">Scorri</span>
+                </div>
+                <!-- Social + Freccia in colonna -->
+                <div class="flex flex-col items-center justify-end h-full reveal-item">
+                    <div class="flex flex-col items-center gap-4 mt-6 p-0 m-0">
+                        <a href="https://www.instagram.com/climatech_galliate" target="_blank" rel="noopener noreferrer"
+                            class="group">
                             <span class="w-9 h-9 flex items-center justify-center transition">
-                                <img src="svg cerchi/Frame 161.svg" alt="Instagram" class="w-9 h-9"/>
+                                <img src="svg cerchi/Frame 161.svg" alt="Instagram" class="w-9 h-9" />
                             </span>
                         </a>
-                        <a href="https://www.facebook.com/people/Climatech-di-Pellino-Fabio/100057446426742/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="group">
+                        <a href="https://www.facebook.com/people/Climatech-di-Pellino-Fabio/100057446426742/?locale=it_IT"
+                            target="_blank" rel="noopener noreferrer" class="group">
                             <span class="w-9 h-9 flex items-center justify-center transition">
-                                <img src="svg cerchi/Frame 160.svg" alt="Facebook" class="w-9 h-9"/>
+                                <img src="svg cerchi/Frame 160.svg" alt="Facebook" class="w-9 h-9" />
                             </span>
                         </a>
                         <a href="https://wa.me/393337973602" target="_blank" rel="noopener noreferrer" class="group">
                             <span class="w-9 h-9 flex items-center justify-center transition">
-                                <img src="svg cerchi/Frame 8713.svg" alt="Whatsapp" class="w-9 h-9"/>
+                                <img src="svg cerchi/Frame 8713.svg" alt="Whatsapp" class="w-9 h-9" />
                             </span>
                         </a>
                     </div>
-                    <div class="flex flex-col items-center w-fit p-0 m-0" style="min-width:unset; margin-top:40px;">
-                        <svg id="hero-arrow" class="arrow-animate" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.95 110.8" width="70" height="140" style="display:block; margin-top:0px; width:70px; height:140px;">
-                            <path d="M7.97,0c.22,0,.4.18.4.4v106.86c.17-.35.37-.69.57-1.02.81-1.27,1.86-2.42,2.88-3.36,1.02-.95,2-1.7,2.66-2.19.28-.21.51-.37.65-.47.04-.06.09-.11.15-.14.03-.01.07-.03.1-.05,0,0,.03,0,.04-.01.01,0,.06-.02.12-.01.03,0,.1,0,.18.05.1.05.18.15.2.28.02.1-.01.18-.02.22-.02.04-.03.07-.04.08-.03.05-.07.08-.08.08-.01.01-.03.02-.04.03-.02.02-.06.04-.09.07-.15.11-.38.27-.71.51-.65.48-1.6,1.21-2.59,2.13-.99.92-1.99,2.01-2.75,3.21-.76,1.19-1.25,2.46-1.25,3.73h0c0,.22-.18.4-.4.4s-.4-.18-.4-.4h0c0-1.27-.49-2.51-1.25-3.66-.75-1.15-1.76-2.18-2.74-3.04-.98-.86-1.94-1.54-2.58-1.97-.32-.22-.57-.37-.71-.46-.03-.02-.06-.04-.08-.05-.01,0-.02-.01-.03-.02,0,0-.03-.02-.06-.05,0,0-.03-.03-.05-.07-.01-.02-.04-.07-.05-.1-.01-.05-.01-.19,0-.27.04-.08.16-.19.22-.23.04-.01.12-.03.15-.03.05,0,.09,0,.1.01.04,0,.07.03.08.03.02,0,.05.02.08.04.05.02.09.06.12.09.14.09.38.24.67.44.67.44,1.65,1.14,2.67,2.03,1.02.89,2.08,1.98,2.88,3.21.21.32.41.65.58.99V.4c0-.22.18-.4.4-.4Z" shape-rendering="crispEdges" style="fill: rgba(255, 255, 255, .3); stroke: rgba(255,255,255,0.3); stroke-width:0.6;"/>
+                    <div class="flex flex-col items-center w-fit p-0 m-0 mt-8" style="min-width:unset;">
+                        <svg id="hero-arrow" class="arrow-animate" data-name="Livello 1"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.95 110.8" width="30" height="140"
+                            style="display:block; margin-top:0px; width:40px; height:140px;">
+                            <path
+                                d="M7.97,0c.22,0,.4.18.4.4v106.86c.17-.35.37-.69.57-1.02.81-1.27,1.86-2.42,2.88-3.36,1.02-.95,2-1.7,2.66-2.19.28-.21.51-.37.65-.47.04-.06.09-.11.15-.14.03-.01.07-.03.1-.05,0,0,.03,0,.04-.01.01,0,.06-.02.12-.01.03,0,.1,0,.18.05.1.05.18.15.2.28.02.1-.01.18-.02.22-.02.04-.03.07-.04.08-.03.05-.07.08-.08.08-.01.01-.03.02-.04.03-.02.02-.06.04-.09.07-.15.11-.38.27-.71.51-.65.48-1.6,1.21-2.59,2.13-.99.92-1.99,2.01-2.75,3.21-.76,1.19-1.25,2.46-1.25,3.73h0c0,.22-.18.4-.4.4s-.4-.18-.4-.4h0c0-1.27-.49-2.51-1.25-3.66-.75-1.15-1.76-2.18-2.74-3.04-.98-.86-1.94-1.54-2.58-1.97-.32-.22-.57-.37-.71-.46-.03-.02-.06-.04-.08-.05-.01,0-.02-.01-.03-.02,0,0-.03-.02-.06-.05,0,0-.03-.03-.05-.07-.01-.02-.04-.07-.05-.1-.01-.05-.01-.19,0-.27.04-.08.16-.19.22-.23.04-.01.12-.03.15-.03.05,0,.09,0,.1.01.04,0,.07.03.08.03.02,0,.05.02.08.04.05.02.09.06.12.09.14.09.38.24.67.44.67.44,1.65,1.14,2.67,2.03,1.02.89,2.08,1.98,2.88,3.21.21.32.41.65.58.99V.4c0-.22.18-.4.4-.4Z"
+                                shape-rendering="crispEdges"
+                                style="fill: rgba(255, 255, 255, .3); stroke: rgba(255,255,255,0.3); stroke-width:0.6;" />
                         </svg>
                         <script>
-                        // Animazione freccia hero: la freccia scompare solo quando la hero è completamente fuori
-                        (function() {
-                            const arrow = document.getElementById('hero-arrow');
-                            if (!arrow) return;
-                            function onScroll() {
-                                const homeSection = document.getElementById('home');
-                                if (!homeSection) return;
-                                const rect = homeSection.getBoundingClientRect();
-                                // Nascondi la freccia solo quando la hero è completamente fuori dallo schermo
-                                if (rect.bottom < 10 || rect.top < -rect.height + 10) {
-                                    arrow.classList.add('hide');
-                                } else {
-                                    arrow.classList.remove('hide');
+                            // Animazione freccia hero: la freccia scompare solo quando la hero è completamente fuori
+                            (function () {
+                                const arrow = document.getElementById('hero-arrow');
+                                if (!arrow) return;
+                                function onScroll() {
+                                    const homeSection = document.getElementById('home');
+                                    if (!homeSection) return;
+                                    const rect = homeSection.getBoundingClientRect();
+                                    // Nascondi la freccia solo quando la hero è completamente fuori dallo schermo
+                                    if (rect.bottom < 10 || rect.top < -rect.height + 10) {
+                                        arrow.classList.add('hide');
+                                    } else {
+                                        arrow.classList.remove('hide');
+                                    }
                                 }
-                            }
-                            window.addEventListener('scroll', onScroll, { passive: true });
-                            onScroll();
-                        })();
+                                window.addEventListener('scroll', onScroll, { passive: true });
+                                onScroll();
+                            })();
                         </script>
                     </div>
                 </div>
             </div>
-                        </div>
-            </div>
-            <!-- End Social vertical bar -->
-        </div>
-        <div class="relative z-10 custom900:text-left flex flex-col reveal-container hero-content-custom px-4" style="margin-top: -170px;">
-            <!-- Removed duplicate heading, only mt-8 version remains -->
-            <div class="max-w-7xl mx-auto w-full">
-                           <h1 class="font-semibold text-[38px] custom900:text-[50px] mb-4 leading-tight reveal-item titolo-desktop" style="font-family: 'Poppins', sans-serif;">Installazione e<br>Manutenzione Climatizzatori</h1>
-                           <h1 class="font-semibold text-[32px] mb-4 leading-tight reveal-item titolo-mobile">Installazione e<br>Manutenzione<br>Climatizzatori</h1>
-                           <p class="text-lg text-gray-300 mb-2 reveal-item descrizione-desktop">Soluzioni di climatizzazione su misura: vendita, installazione<br>e manutenzione.<span class="font-bold text-white"> Partner ufficiali Daikin e Hisense.</span></p>
-                           <p class="text-lg text-gray-300 mb-2 reveal-item descrizione-mobile">Soluzioni di climatizzazione su<br>misura:vendita, installazione e<br>manutenzione.<span class="font-bold text-white">Partner ufficiali<br>Daikin e Hisense.</span></p>
-                                    <style>
-                                        @media (min-width: 768px) {
-                                            .hero-content-custom { margin-top: -160px; }
-                                        }
-                                    </style>
-            <div class="flex flex-row gap-4 justify-center custom900:justify-start reveal-item custom900:mx-0 custom900:max-w-none">
-                <a href="https://wa.me/393337973602" class="bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition">Scrivici</a>
-                <a href="mailto:fabio.pellino23@gmail.com" class="border border-white/30 px-6 py-3 rounded-full font-bold text-sm hover:bg-white hover:text-black transition">Chiama Ora</a>
-            </div>
-        </div>
-                        <div class="max-w-7xl mx-auto w-full flex flex-row items-end gap-0 w-fit" style="left:calc(85vw); right:auto; min-width:unset;">
-            </div>
         </div>
     </section>
 
-        <section id="lavori">
+
+
+    <section id="lavori">
         <div class="max-w-6xl w-full mx-auto px-4 md:px-6 md:py-0 reveal-container">
-            <div class="grid md:grid-cols-2 gap-8 md:gap-12 bg-[#111] p-6 md:p-16 rounded-[40px] border border-white/5 items-center">
+            <div
+                class="grid md:grid-cols-2 gap-8 md:gap-12 bg-[#111] p-6 md:p-16 rounded-[40px] border border-white/5 items-center">
                 <div class="reveal-item">
                     <h2 class="text-4xl font-bold mb-6 uppercase tracking-tighter reveal-item">I nostri lavori</h2>
-                    <p class="text-gray-400 text-lg leading-relaxed">Soluzioni su misura per ogni ambiente. Guarda i nostri ultimi interventi tra impianti canalizzati, sistemi VRV e sostituzioni con accesso al Conto Termico.</p>
+                    <p class="text-gray-400 text-lg leading-relaxed">Soluzioni su misura per ogni ambiente. Guarda i
+                        nostri ultimi interventi tra impianti canalizzati, sistemi VRV e sostituzioni con accesso al
+                        Conto Termico.</p>
                 </div>
                 <div class="reveal-item rounded-3xl overflow-hidden shadow-2xl">
                     <div class="carousel-container">
                         <div class="carousel-slides" id="carouselSlides">
                             <div class="carousel-slide" data-index="0">
-                                <img draggable="false" src="images/lavori/lav.01.0/lav.01.01.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 1">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Impianto canalizzato</div>
+                                <img draggable="false" src="images/lavori/lav.01.0/lav.01.01.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 1">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Impianto canalizzato</div>
                             </div>
                             <div class="carousel-slide" data-index="1">
-                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low" src="images/lavori/lav.02.0/lav.02.01.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 2">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Sistema VRV</div>
+                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low"
+                                    src="images/lavori/lav.02.0/lav.02.01.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 2">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Sistema VRV</div>
                             </div>
                             <div class="carousel-slide" data-index="2">
-                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low" src="images/lavori/lav.03.0/lav.03.01.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 3">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Climatizzazione residenziale</div>
+                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low"
+                                    src="images/lavori/lav.03.0/lav.03.01.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 3">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Climatizzazione residenziale</div>
                             </div>
                             <div class="carousel-slide" data-index="3">
-                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low" src="images/lavori/lav.04.0/lav.04.02.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 4">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Sostituzione impianto</div>
+                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low"
+                                    src="images/lavori/lav.04.0/lav.04.02.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 4">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Sostituzione impianto</div>
                             </div>
                             <div class="carousel-slide" data-index="4">
-                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low" src="images/lavori/lav.05.0/lav.05.01.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 5">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Climatizzazione residenziale</div>
+                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low"
+                                    src="images/lavori/lav.05.0/lav.05.01.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 5">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Climatizzazione residenziale</div>
                             </div>
                             <div class="carousel-slide" data-index="5">
-                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low" src="images/lavori/lav.06.0/lav.06.02.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 6">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Sostituzione impianto</div>
+                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low"
+                                    src="images/lavori/lav.06.0/lav.06.02.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 6">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Sostituzione impianto</div>
                             </div>
                             <div class="carousel-slide" data-index="6">
-                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low" src="images/lavori/lav.07.0/lav.07.01.png" class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 7">
-                                <div class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">Installazione pompa di calore</div>
+                                <img draggable="false" loading="lazy" decoding="async" fetchpriority="low"
+                                    src="images/lavori/lav.07.0/lav.07.01.png"
+                                    class="w-full h-[250px] md:h-[350px] object-cover" alt="Lavoro 7">
+                                <div
+                                    class="p-3 bg-[#1a1a1a] text-xs text-white border-t border-white/5 uppercase tracking-wider text-center">
+                                    Installazione pompa di calore</div>
                             </div>
                         </div>
                     </div>
@@ -234,7 +320,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Modal Lightbox -->
     <div class="modal" id="modal">
         <div class="modal-close" onclick="closeModal()">×</div>
@@ -248,20 +334,28 @@
     <section id="marchi">
         <div class="text-center px-6 reveal-container">
             <h2 class="text-4xl font-bold mb-6 reveal-item uppercase tracking-tighter">I nostri marchi</h2>
-            <p class="text-gray-400 text-lg leading-relaxed mb-16 reveal-item max-w-3xl mx-auto">Installatori certificati <span class="text-white font-semibold">Daikin Comfort Store</span> e partner <span class="text-white font-semibold">Hisense</span>. Portiamo l'eccellenza dei leader mondiali della climatizzazione a casa tua.</p>
+            <p class="text-gray-400 text-lg leading-relaxed mb-16 reveal-item max-w-3xl mx-auto">Installatori
+                certificati <span class="text-white font-semibold">Daikin Comfort Store</span> e partner <span
+                    class="text-white font-semibold">Hisense</span>. Portiamo l'eccellenza dei leader mondiali della
+                climatizzazione a casa tua.</p>
             <div class="flex flex-col gap-8 md:gap-12 items-center">
-                <img src="images/hisense.svg" alt="Hisense" class="reveal-item h-16 md:h-28" loading="lazy" decoding="async">
-                <img src="images/daikin.svg" alt="Daikin" class="reveal-item h-20 md:h-36" loading="lazy" decoding="async">
-                <img src="images/comfort%20store.svg" alt="Comfort Store" class="reveal-item h-24 md:h-40" loading="lazy" decoding="async">
+                <img src="images/hisense.svg" alt="Hisense" class="reveal-item h-16 md:h-28" loading="lazy"
+                    decoding="async">
+                <img src="images/daikin.svg" alt="Daikin" class="reveal-item h-20 md:h-36" loading="lazy"
+                    decoding="async">
+                <img src="images/comfort%20store.svg" alt="Comfort Store" class="reveal-item h-24 md:h-40"
+                    loading="lazy" decoding="async">
             </div>
         </div>
     </section>
 
     <section id="contatti">
         <div class="max-w-6xl w-full mx-auto px-6 reveal-container">
-            <h2 class="text-4xl font-bold mb-4 reveal-item uppercase tracking-tighter text-center md:text-left">Contatti</h2>
-            <p class="text-gray-400 mb-12 reveal-item text-center md:text-left text-lg">Hai bisogno di assistenza o di un nuovo impianto? Scrivici o chiamaci.</p>
-            
+            <h2 class="text-4xl font-bold mb-4 reveal-item uppercase tracking-tighter text-center md:text-left">Contatti
+            </h2>
+            <p class="text-gray-400 mb-12 reveal-item text-center md:text-left text-lg">Hai bisogno di assistenza o di
+                un nuovo impianto? Scrivici o chiamaci.</p>
+
             <div class="grid md:grid-cols-3 gap-10 reveal-item text-center md:text-left border-t border-white/10 pt-12">
                 <div>
                     <span class="block text-xs uppercase tracking-widest text-gray-500 mb-4">Telefono & Mail</span>
@@ -287,11 +381,14 @@
             <h2 class="text-4xl font-bold mb-16 reveal-item uppercase tracking-tighter">Collaborazioni</h2>
             <div class="reveal-item mb-10">
                 <a href="https://www.novarabasket.it" target="_blank" rel="noopener noreferrer" class="inline-block">
-                    <img src="images/novarabasket.svg" alt="Novara Basket" class="h-32 md:h-48 mx-auto hover:opacity-80 transition" loading="lazy" decoding="async">
+                    <img src="images/novarabasket.svg" alt="Novara Basket"
+                        class="h-32 md:h-48 mx-auto hover:opacity-80 transition" loading="lazy" decoding="async">
                 </a>
             </div>
             <p class="max-w-xl mx-auto text-gray-500 text-lg italic leading-relaxed reveal-item">
-                Supportiamo con orgoglio la realtà del <span class="text-white">Novara Basket</span>. Per tutti i membri e tesserati della società, offriamo condizioni agevolate e <span class="text-white font-bold">sconti esclusivi</span> sui nostri lavori.
+                Supportiamo con orgoglio la realtà del <span class="text-white">Novara Basket</span>. Per tutti i membri
+                e tesserati della società, offriamo condizioni agevolate e <span class="text-white font-bold">sconti
+                    esclusivi</span> sui nostri lavori.
             </p>
         </div>
     </section>
@@ -303,7 +400,8 @@
                 <!-- Logo e descrizione -->
                 <div>
                     <img src="images/climatech.svg" alt="Climatech" class="h-8 mb-4" loading="lazy" decoding="async">
-                    <p class="text-gray-500 text-sm leading-relaxed">Soluzioni di climatizzazione su misura per ogni esigenza. Installatori certificati Daikin e Hisense.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Soluzioni di climatizzazione su misura per ogni
+                        esigenza. Installatori certificati Daikin e Hisense.</p>
                 </div>
 
                 <!-- Menu rapido -->
@@ -322,10 +420,12 @@
                     <h3 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Contatti</h3>
                     <ul class="space-y-2 text-sm">
                         <li>
-                            <a href="tel:+39333797360" class="text-gray-400 hover:text-white transition">+39 333 797 3602</a>
+                            <a href="tel:+39333797360" class="text-gray-400 hover:text-white transition">+39 333 797
+                                3602</a>
                         </li>
                         <li>
-                            <a href="mailto:fabio.pellino23@gmail.com" class="text-gray-400 hover:text-white transition">fabio.pellino23@gmail.com</a>
+                            <a href="mailto:fabio.pellino23@gmail.com"
+                                class="text-gray-400 hover:text-white transition">fabio.pellino23@gmail.com</a>
                         </li>
                         <li class="text-gray-500 text-xs mt-4">
                             Via Gorizia 22<br>
@@ -338,10 +438,13 @@
                 <div>
                     <h3 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Seguici</h3>
                     <div class="flex gap-4">
-                        <a href="https://www.facebook.com/people/Climatech-di-Pellino-Fabio/100057446426742/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/20 hover:border-white/50 flex items-center justify-center text-white hover:bg-white/5 transition">
+                        <a href="https://www.facebook.com/people/Climatech-di-Pellino-Fabio/100057446426742/?locale=it_IT"
+                            target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full border border-white/20 hover:border-white/50 flex items-center justify-center text-white hover:bg-white/5 transition">
                             <span class="text-xs">f</span>
                         </a>
-                        <a href="https://www.instagram.com/climatech_galliate" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/20 hover:border-white/50 flex items-center justify-center text-white hover:bg-white/5 transition">
+                        <a href="https://www.instagram.com/climatech_galliate" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full border border-white/20 hover:border-white/50 flex items-center justify-center text-white hover:bg-white/5 transition">
                             <span class="text-xs">ig</span>
                         </a>
                     </div>
@@ -362,42 +465,52 @@
     <div class="spacer-mobile h-2 bg-black" style="scroll-snap-align: none;"></div>
 
     <script>
-                // Menu Hamburger Toggle
-                const hamburger = document.getElementById('hamburger');
-                const mobileMenu = document.getElementById('mobileMenu');
-        
-                hamburger.addEventListener('click', () => {
-                        hamburger.classList.toggle('active');
-                        mobileMenu.classList.toggle('active');
-                });
-        
-                function closeMenu() {
-                        hamburger.classList.remove('active');
-                        mobileMenu.classList.remove('active');
+        // Menu Hamburger Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isActive = mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+
+            // Toggle classi per bloccare scroll e snap
+            document.documentElement.classList.toggle('menu-open', isActive);
+            document.body.classList.toggle('menu-open', isActive);
+
+            // Sfondo opaco anche alla navbar quando il menu mobile è aperto
+            const navbar = document.querySelector('nav');
+            if (isActive) {
+                navbar.classList.add('navbar-mobile-bg');
+            } else {
+                navbar.classList.remove('navbar-mobile-bg');
+            }
+        });
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.documentElement.classList.remove('menu-open');
+            document.body.classList.remove('menu-open');
+            // Rimuovi sfondo opaco dalla navbar
+            const navbar = document.querySelector('nav');
+            navbar.classList.remove('navbar-mobile-bg');
+        }
+
+        // IntersectionObserver per reveal-container
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
                 }
+            });
+        }, { threshold: 0.15 });
 
-                // IntersectionObserver per reveal-container (come da riferimentopubb1)
-                const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                        entry.target.classList.add('visible');
-                                } else {
-                                        entry.target.classList.remove('visible');
-                                }
-                        });
-                }, { threshold: 0.5 });
-
-                // Reveal animazioni SOLO per le sezioni sotto la home
-                const sectionIds = ['lavori', 'marchi', 'contatti', 'collaborazioni'];
-                sectionIds.forEach(id => {
-                    const section = document.getElementById(id);
-                    if (section) {
-                        const containers = section.querySelectorAll('.reveal-container');
-                        containers.forEach(container => {
-                            observer.observe(container);
-                        });
-                    }
-                });
+        document.querySelectorAll('.reveal-container').forEach(container => {
+            observer.observe(container);
+        });
 
         // Footer reveal transition
         const footerEl = document.querySelector('footer');
@@ -415,7 +528,7 @@
             }, { threshold: 0.2 });
             footerObserver.observe(footerEl);
         }
-        
+
         // Navigazione smooth per link navbar (desktop e mobile) con ripristino scroll-snap
         let isScrolling = false;
 
@@ -437,7 +550,7 @@
             const currentPos = window.scrollY;
             const targetPos = target.offsetTop;
             const distance = Math.abs(targetPos - currentPos);
-            
+
             // Calcola il delay dinamicamente: min 200ms, max 1000ms
             const delay = Math.min(1000, 200 + (distance / 1000) * 800);
 
@@ -448,10 +561,10 @@
             if (isSafariMobile()) {
                 // 1. Disabilita lo snap
                 document.documentElement.style.scrollSnapType = 'none';
-                
+
                 // 2. Fai un micro-scroll per resettare lo stato di Safari
                 window.scrollBy(0, 1);
-                
+
                 // 3. Aspetta un frame, poi fai lo scroll vero
                 requestAnimationFrame(() => {
                     if (target.tagName === 'FOOTER') {
@@ -468,7 +581,7 @@
                         // Per altre sezioni: scrollIntoView normale
                         target.scrollIntoView({ behavior: 'smooth', block: blockAlign });
                     }
-                    
+
                     // 4. Riabilita lo snap dopo che lo scroll è finito (delay dinamico)
                     setTimeout(() => {
                         document.documentElement.style.scrollSnapType = 'y mandatory';
@@ -502,24 +615,24 @@
         }
 
         wireNavLinks();
-        
+
         // Carosello Lavori
         const lavoriData = [
-            {folder: 'lav.01.0', images: ['lav.01.01.png', 'lav.01.02.png', 'lav.01.03.png', 'lav.01.04.png', 'lav.01.05.png', 'lav.01.06.png', 'lav.01.07.png', 'lav.01.08.png', 'lav.01.09.png', 'lav.01.10.png', 'lav.01.11.png']},
-            {folder: 'lav.02.0', images: ['lav.02.01.png', 'lav.02.02.png', 'lav.02.03.png', 'lav.02.04.png', 'lav.02.05.png', 'lav.02.06.png']},
-            {folder: 'lav.03.0', images: ['lav.03.01.png', 'lav.03.02.png', 'lav.03.03.png', 'lav.03.04.png', 'lav.03.05.png', 'lav.03.06.png']},
-            {folder: 'lav.04.0', images: ['lav.04.01.png', 'lav.04.02.png', 'lav.04.03.png']},
-            {folder: 'lav.05.0', images: ['lav.05.01.png', 'lav.05.02.png']},
-            {folder: 'lav.06.0', images: ['lav.06.01.png', 'lav.06.02.png']},
-            {folder: 'lav.07.0', images: ['lav.07.01.png', 'lav.07.02.png', 'lav.07.03.png', 'lav.07.04.png', 'lav.07.05.png']}
+            { folder: 'lav.01.0', images: ['lav.01.01.png', 'lav.01.02.png', 'lav.01.03.png', 'lav.01.04.png', 'lav.01.05.png', 'lav.01.06.png', 'lav.01.07.png', 'lav.01.08.png', 'lav.01.09.png', 'lav.01.10.png', 'lav.01.11.png'] },
+            { folder: 'lav.02.0', images: ['lav.02.01.png', 'lav.02.02.png', 'lav.02.03.png', 'lav.02.04.png', 'lav.02.05.png', 'lav.02.06.png'] },
+            { folder: 'lav.03.0', images: ['lav.03.01.png', 'lav.03.02.png', 'lav.03.03.png', 'lav.03.04.png', 'lav.03.05.png', 'lav.03.06.png'] },
+            { folder: 'lav.04.0', images: ['lav.04.01.png', 'lav.04.02.png', 'lav.04.03.png'] },
+            { folder: 'lav.05.0', images: ['lav.05.01.png', 'lav.05.02.png'] },
+            { folder: 'lav.06.0', images: ['lav.06.01.png', 'lav.06.02.png'] },
+            { folder: 'lav.07.0', images: ['lav.07.01.png', 'lav.07.02.png', 'lav.07.03.png', 'lav.07.04.png', 'lav.07.05.png'] }
         ];
-        
+
         let currentSlide = 0;
         let currentModal = 0;
         let currentModalImage = 0;
         let autoplayInterval;
         let previousSnapType = '';
-        
+
         // Inizializza dots
         const dotsContainer = document.getElementById('carouselDots');
         lavoriData.forEach((_, index) => {
@@ -528,7 +641,7 @@
             dot.onclick = () => goToSlide(index);
             dotsContainer.appendChild(dot);
         });
-        
+
         // Setup drag per le slide del carosello
         function setupCarouselDrag() {
             const carouselContainer = document.querySelector('.carousel-container');
@@ -537,7 +650,7 @@
             let carouselDragStartY = 0;
             let carouselDragCurrentX = 0;
             const carouselDragThreshold = 30;
-            
+
             // Mouse events
             carouselContainer.addEventListener('mousedown', (e) => {
                 isCarouselDragging = true;
@@ -545,13 +658,13 @@
                 carouselDragStartY = e.clientY;
                 carouselDragCurrentX = carouselDragStartX;
             });
-            
+
             document.addEventListener('mousemove', (e) => {
                 if (isCarouselDragging) {
                     carouselDragCurrentX = e.clientX;
                 }
             });
-            
+
             document.addEventListener('mouseup', (e) => {
                 if (!isCarouselDragging) return;
                 isCarouselDragging = false;
@@ -580,27 +693,17 @@
         }
 
         function handleCarouselDragEnd(e, startX, currentX, startY) {
-            const carouselDragThreshold = 30;
-            const dragDistance = startX - currentX;
+            const carouselDragThreshold = 10;
+            const dragDistance = Math.abs(startX - currentX);
             const dragVertical = Math.abs((e.touches?.[0]?.clientY || e.clientY) - startY);
-            
-            // Se il movimento verticale è troppo grande, ignora
-            if (dragVertical > 10) {
-                return;
-            }
-            
-            // Se è un vero drag (oltre la soglia), scorre il carosello
-            if (Math.abs(dragDistance) > carouselDragThreshold) {
-                if (dragDistance > 0) {
-                    changeSlide(1); // Drag a sinistra = prossima slide
-                } else {
-                    changeSlide(-1); // Drag a destra = slide precedente
-                }
-            } else {
-                // Se è solo un click/tap, apri il modal
+
+            // Se il movimento verticale è troppo grande o lo spostamento orizzontale è minimo, potrebbe essere un click
+            if (dragVertical < 20 && dragDistance < carouselDragThreshold) {
+                // È un click (o tap molto preciso)
                 const slides = document.querySelectorAll('.carousel-slide');
-                const clientX = e.touches?.[0]?.clientX || e.clientX;
-                const clientY = e.touches?.[0]?.clientY || e.clientY;
+                const clientX = e.changedTouches?.[0]?.clientX || e.clientX;
+                const clientY = e.changedTouches?.[0]?.clientY || e.clientY;
+
                 slides.forEach(slide => {
                     const rect = slide.getBoundingClientRect();
                     if (clientX >= rect.left && clientX <= rect.right &&
@@ -609,26 +712,33 @@
                         openModal(workIndex);
                     }
                 });
+            } else if (dragDistance >= carouselDragThreshold) {
+                // È un drag
+                if (startX > currentX) {
+                    changeSlide(1);
+                } else {
+                    changeSlide(-1);
+                }
             }
         }
-        
-        
+
+
         function changeSlide(direction) {
             currentSlide = (currentSlide + direction + lavoriData.length) % lavoriData.length;
             updateCarousel();
             resetAutoplay();
         }
-        
+
         function goToSlide(index) {
             currentSlide = index;
             updateCarousel();
             resetAutoplay();
         }
-        
+
         function updateCarousel() {
             const slides = document.getElementById('carouselSlides');
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
+
             document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
@@ -636,13 +746,13 @@
             // Precarica le immagini vicine per evitare ritardi al cambio slide
             preloadCarouselNeighbors();
         }
-        
+
         function startAutoplay() {
             autoplayInterval = setInterval(() => {
                 changeSlide(1);
             }, 6000);
         }
-        
+
         function resetAutoplay() {
             clearInterval(autoplayInterval);
             startAutoplay();
@@ -674,7 +784,7 @@
             setTimeout(() => {
                 const slideImgs = document.querySelectorAll('.carousel-slide img');
                 let slideIndex = 1; // Inizia dalla slide 2 (index 1)
-                
+
                 const preloadNextSlide = () => {
                     if (slideIndex >= slideImgs.length) {
                         // Tutte le slide caricate, ora precarica il modal
@@ -683,18 +793,18 @@
                         }, 300);
                         return;
                     }
-                    
+
                     // Precarica la slide attuale
                     const img = slideImgs[slideIndex];
                     if (img && img.src) {
                         preloadImage(img.src);
                     }
-                    
+
                     slideIndex++;
                     // Attendi 150ms prima di precarricare la prossima slide
                     setTimeout(preloadNextSlide, 150);
                 };
-                
+
                 preloadNextSlide();
             }, 500); // Attendi 500ms prima di iniziare (la slide 1 è già caricata)
         }
@@ -706,20 +816,20 @@
                 work.images.forEach(img => preloadImage(base + img));
             });
         }
-        
+
         // Modal
         function openModal(workIndex) {
             currentModal = workIndex;
             currentModalImage = 0;
             updateModalImage();
             preloadModalNeighbors();
-            
+
             const modal = document.getElementById('modal');
             const lavoriSection = document.getElementById('lavori');
-            
+
             // Posiziona il modal sopra la sezione lavori
             modal.style.top = lavoriSection.offsetTop + 'px';
-            
+
             // Apri il modal
             modal.classList.add('active');
             previousSnapType = document.documentElement.style.scrollSnapType || getComputedStyle(document.documentElement).scrollSnapType;
@@ -727,7 +837,7 @@
             document.documentElement.classList.add('modal-open');
             document.body.classList.add('modal-open');
             clearInterval(autoplayInterval);
-            
+
             // Scroll alla sezione lavori per mostrare il modal
             window.scrollTo({
                 top: lavoriSection.offsetTop,
@@ -735,7 +845,7 @@
                 behavior: 'smooth'
             });
         }
-        
+
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
             document.documentElement.classList.remove('modal-open');
@@ -743,14 +853,14 @@
             document.documentElement.style.scrollSnapType = previousSnapType || 'y mandatory';
             startAutoplay();
         }
-        
+
         function changeModalSlide(direction) {
             const work = lavoriData[currentModal];
             currentModalImage = (currentModalImage + direction + work.images.length) % work.images.length;
             updateModalImage();
             preloadModalNeighbors();
         }
-        
+
         function updateModalImage() {
             const work = lavoriData[currentModal];
             const imgPath = `images/lavori/${work.folder}/${work.images[currentModalImage]}`;
@@ -769,29 +879,29 @@
             const base = `images/lavori/${work.folder}/`;
             idxs.forEach(i => preloadImage(base + work.images[i]));
         }
-        
+
         // Chiudi modal con ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
             if (e.key === 'ArrowLeft') changeModalSlide(-1);
             if (e.key === 'ArrowRight') changeModalSlide(1);
         });
-        
+
         // Touch/Swipe support per mobile
         let touchStartX = 0;
         let touchEndX = 0;
-        
+
         const modal = document.getElementById('modal');
-        
+
         modal.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         });
-        
+
         modal.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         });
-        
+
         function handleSwipe() {
             const swipeThreshold = 50;
             if (touchEndX < touchStartX - swipeThreshold) {
@@ -803,10 +913,10 @@
                 changeModalSlide(-1);
             }
         }
-        
+
         // Avvia autoplay
         startAutoplay();
-        
+
         // Setup drag per il carosello
         setupCarouselDrag();
 
@@ -815,15 +925,11 @@
 
         // Avvia il precaricamento progressivo: carosello → slide interne → modal
         startProgressivePreloading();
-        
+
         // Gestore delle animazioni per singola sezione
-        // Applica subito la classe .visible a tutte le .reveal-container (fallback per dispositivi/browser che non triggerano l'observer)
-        document.querySelectorAll('.reveal-container').forEach(container => {
-            container.classList.add('visible');
-        });
         // IntersectionObserver per animazioni progressive (se supportato)
         if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
+            const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
@@ -831,11 +937,17 @@
                         entry.target.classList.remove('visible');
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.15 });
             document.querySelectorAll('.reveal-container').forEach(container => {
-                observer.observe(container);
+                revealObserver.observe(container);
+            });
+        } else {
+            // Fallback per browser senza IntersectionObserver
+            document.querySelectorAll('.reveal-container').forEach(container => {
+                container.classList.add('visible');
             });
         }
     </script>
 </body>
+
 </html>

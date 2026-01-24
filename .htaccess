@@ -27,13 +27,18 @@
     Header set Cache-Control "public, max-age=2592000, immutable"
   </FilesMatch>
 
-  # CSS/JS cached 30 days; no immutable since they may change
-  <FilesMatch "\.(?:css|js)$">
+  # Fonts: safe to cache long and mark immutable
+  <FilesMatch "\.(?:ttf|otf|woff|woff2|eot)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
+
+  # CSS/JS/JSON/Source maps/WebAssembly/Manifest: cached 30 days
+  <FilesMatch "\.(?:css|js|json|map|wasm|webmanifest)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 
   # HTML: short/no cache to always fetch latest document
-  <FilesMatch "\.(?:html)$">
+  <FilesMatch "\.(?:html?)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires "0"
