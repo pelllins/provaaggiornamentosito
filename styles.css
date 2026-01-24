@@ -1,9 +1,11 @@
 /* Hero description visibility logic */
-.descrizione-mobile {
+.descrizione-mobile,
+.titolo-mobile {
     display: none;
 }
 
-.descrizione-desktop {
+.descrizione-desktop,
+.titolo-desktop {
     display: block;
 }
 
