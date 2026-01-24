@@ -601,7 +601,7 @@
         }
 
         function wireNavLinks() {
-            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a');
+            const navLinks = document.querySelectorAll('.desktop-menu a, .mobile-menu a, footer a[href^="#"], a[aria-label="Vai alla Home"]');
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
