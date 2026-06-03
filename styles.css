@@ -1263,12 +1263,14 @@ ul {
     }
 
     .services-grid,
-    .experiences-grid {
+    .experiences-grid,
+    .reviews-grid {
         gap: 16px;
     }
 
     .service-card,
-    .exp-card {
+    .exp-card,
+    .review-card {
         padding: 24px 18px;
     }
 
@@ -1281,16 +1283,28 @@ ul {
     .exp-icon {
         margin-bottom: 12px;
     }
+
+    .review-stars {
+        margin-bottom: 8px;
+    }
+
+    .review-text {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+        line-height: 1.6;
+    }
 }
 
 @media (max-width: 480px) {
     .services-grid,
-    .experiences-grid {
+    .experiences-grid,
+    .reviews-grid {
         gap: 12px;
     }
 
     .service-card,
-    .exp-card {
+    .exp-card,
+    .review-card {
         padding: 20px 14px;
     }
 }
