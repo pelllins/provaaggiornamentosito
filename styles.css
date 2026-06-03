@@ -1256,3 +1256,41 @@ ul {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .services-grid,
+    .experiences-grid {
+        gap: 16px;
+    }
+
+    .service-card,
+    .exp-card {
+        padding: 24px 18px;
+    }
+
+    .service-title,
+    .exp-title {
+        font-size: 1.05rem;
+    }
+
+    .service-icon,
+    .exp-icon {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid,
+    .experiences-grid {
+        gap: 12px;
+    }
+
+    .service-card,
+    .exp-card {
+        padding: 20px 14px;
+    }
+}
