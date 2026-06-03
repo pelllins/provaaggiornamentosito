@@ -1230,11 +1230,6 @@ ul {
     }
 }
 
-@media (max-width: 600px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 @media (max-width: 900px) {
 
