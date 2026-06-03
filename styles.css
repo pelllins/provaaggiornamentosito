@@ -43,8 +43,8 @@
 
 :root {
     --green: #1a3c28;
-    --green-mid: #3a1a3c285c05;
-    --green-light: #a3c287a08;
+    --green-mid: #265239;
+    --green-light: #346a49;
     --brown: #ca815e;
     --cream: #f7f3da;
     --cream-dark: #ede9c7;
@@ -107,7 +107,7 @@ ul {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--green);
-    background: rgba(40, 61, 3, 0.1);
+    background: rgba(26, 60, 40, 0.1);
     padding: 6px 14px;
     border-radius: 100px;
     margin-bottom: 16px;
@@ -216,7 +216,7 @@ ul {
 .btn-secondary:hover {
     background: var(--green-mid);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(40, 61, 3, 0.3);
+    box-shadow: 0 8px 24px rgba(26, 60, 40, 0.3);
 }
 
 /* ---- REVEAL ANIMATIONS ---- */
@@ -578,19 +578,19 @@ body.menu-open #navbar {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, rgba(40, 61, 3, 0.05) 0%, rgba(40, 61, 3, 0.02) 100%);
+    background: linear-gradient(135deg, rgba(26, 60, 40, 0.05) 0%, rgba(26, 60, 40, 0.02) 100%);
     backdrop-filter: blur(2px);
     border-radius: var(--radius);
     padding: 32px 24px;
     text-align: center;
-    border: 1px solid rgba(40, 61, 3, 0.08);
+    border: 1px solid rgba(26, 60, 40, 0.08);
     transition: transform var(--transition), background var(--transition), border var(--transition);
 }
 
 .stat-card:hover {
     transform: translateY(-6px);
-    background: linear-gradient(135deg, rgba(40, 61, 3, 0.08) 0%, rgba(40, 61, 3, 0.04) 100%);
-    border-color: rgba(40, 61, 3, 0.15);
+    background: linear-gradient(135deg, rgba(26, 60, 40, 0.08) 0%, rgba(26, 60, 40, 0.04) 100%);
+    border-color: rgba(26, 60, 40, 0.15);
 }
 
 .stat-icon {
@@ -774,7 +774,7 @@ body.menu-open #navbar {
     pointer-events: none;
     background: linear-gradient(160deg,
             rgba(40, 28, 16, 0.1) 0%,
-            rgba(40, 61, 3, 0.1) 50%,
+            rgba(26, 60, 40, 0.1) 50%,
             rgba(40, 28, 16, 0.15) 100%);
     mix-blend-mode: multiply;
     z-index: 1;
@@ -973,7 +973,7 @@ body.menu-open #navbar {
     padding: 36px 32px;
     box-shadow: var(--shadow);
     transition: transform var(--transition);
-    border: 1px solid rgba(40, 61, 3, 0.06);
+    border: 1px solid rgba(26, 60, 40, 0.06);
 }
 
 .review-card:hover {
