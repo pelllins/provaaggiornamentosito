@@ -262,6 +262,12 @@ ul {
     box-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
 }
 
+body.menu-open #navbar {
+    background: rgba(26, 60, 40, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
 .nav-inner {
     display: flex;
     align-items: center;
